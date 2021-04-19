@@ -1,0 +1,11 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+cout << "Help, I'm having a nervous breakdown." << endl;
+
+
+return 0;
+}
