@@ -58,8 +58,8 @@ int main() {
 			// set hit dice to d8 and saves to wisdom and charisma
 			// select proficiency in history, insight, medicine, persuasion or religion
 			// add features for level as well as hp? 
-			// print list of spells
-			// print gold for equipment
+			// print list of spells ///R-Should sort spells by level, probably indicate casting time, and PHB page #
+			// print gold for equipment  ///R-We should at least print the page of the PHB where this is found.  I don't think it would be hard to print out a list of equipment, so say: "Choose from this:
 			break;
 		case 2:
 			// set hit dice to d12 and saves to strength and constitution
@@ -141,7 +141,7 @@ int main() {
 
 	//select background
 	do {
-		cout << "Please select the background of your character:\n1. Acolyte\n2. Hermit\n3. Soldier" << endl;
+		cout << "Please select the background of your character:\n1. Acolyte\n2. Hermit\n3. Soldier" << endl; ///R - It might be a good idea to print a short summary of each background.
 		cin >> input;
 
 		switch (input)
