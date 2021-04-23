@@ -1,48 +1,143 @@
 #include <iostream>
 #include <vector>
+#include "Race.h"
+#include <map>
+#include "Character.h"
 
 using namespace std;
 
 int main() {
 	
-	int input;
-	bool valid;
+	//intialization
+	int input; //used for switch input
+	int misc; //dummy int variable used for user selections
+	bool valid = true; //used in do while loops to check for valid inputs from user
 	
-
+	Race playerRace;
+	map<int, string> mapLanguages; //this and its pairs are used for language selection in race and background selection
+	mapLanguages.insert(pair<int, string>(1, "Common"));
+	mapLanguages.insert(pair<int, string>(2, "Elvish"));
+	mapLanguages.insert(pair<int, string>(3, "Dwarvish"));
+	mapLanguages.insert(pair<int, string>(4, "Orcish"));
+	mapLanguages.insert(pair<int, string>(5, "Gnomish"));
+	mapLanguages.insert(pair<int, string>(6, "Infernal"));
+	
+	
 	//select race Human, half orc, tiefling
 	do {
-		cout << "Please select the race of your character:\n1. Human\n2. Half Orc\n3. Gnomes" << endl;
+		cout << "Please select the race of your character:\n1. Human\n2. Half Orc\n3. Tiefling" << endl;
 		cin >> input;
 
 		switch (input)
 		{
 		case 1:
 			// add +1 to all stats
+			playerRace.setStrBonus(1);
+			playerRace.setDexBonus(1);
+			playerRace.setConBonus(1);
+			playerRace.setIntBonus(1);
+			playerRace.setWisBonus(1);
+			playerRace.setChrBonus(1);
+
 			// query misc
+			cout << "What is your character's age?" << endl;
+			cin >> misc;
+			playerRace.setAge(misc);
+
+			cout << "What is your character's weight in pounds?" << endl;
+			cin >> misc;
+			playerRace.setWeight(misc);
+
+			cout << "What is your character's height in inches?" << endl;
+			cin >> misc;
+			playerRace.setHeight(misc);
+
 			// query language
+			cout << "You selected human so your character speaks Common and one additional language" << endl;
+			playerRace.setLang1("Common");
+			cout << "Choose your additional language:\n1. Elvish\n2. Dwarvish\n3. Orcish\n4. Gnomish\n5. Infernal" << endl;
+			cin >> misc;
+			misc = misc + 1; //this line of code adjusts for the lack of common in the map list;
+			if (misc <= 0 || misc >= 6) {
+				misc = 1;
+				cout << "You input a value not listed so we've defaulted your second language to Elvish" << endl;
+			}
+			playerRace.setLang2(mapLanguages[misc]); //used map to turn user input of numbers into a string without using switch statement
+			
 			// record speed
+			playerRace.setSpeed(30);
+
 			// add features
+			playerRace.setFeature("Humans do not have a starting feature");
+
 			break;
 		case 2:
 			// add +2 to strength, +1 to con
+			playerRace.setStrBonus(2);
+			playerRace.setConBonus(1);
+
 			// query misc
+			cout << "What is your character's age?" << endl;
+			cin >> misc;
+			playerRace.setAge(misc);
+
+			cout << "What is your character's weight in pounds?" << endl;
+			cin >> misc;
+			playerRace.setWeight(misc);
+
+			cout << "What is your character's height in inches?" << endl;
+			cin >> misc;
+			playerRace.setHeight(misc);
+
 			// query language
+			cout << "You selected half-orc so your character speaks Common and Orcish" << endl;
+			playerRace.setLang1("Common");
+			playerRace.setLang2("Orcish");
+
 			// record speed
+			playerRace.setSpeed(30);
+
 			// add features
+			playerRace.setFeature("Relentless Endurance: When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest\n\nSavage Attacks: When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.");
+			// MENACING IMPLEMENTATION NEEDED
+
 			break;
 		case 3:
 			// add +2 to char, +1 to int
+			playerRace.setChrBonus(2);
+			playerRace.setIntBonus(1);
+
 			// query misc
+			cout << "What is your character's age?" << endl;
+			cin >> misc;
+			playerRace.setAge(misc);
+
+			cout << "What is your character's weight in pounds?" << endl;
+			cin >> misc;
+			playerRace.setWeight(misc);
+
+			cout << "What is your character's height in inches?" << endl;
+			cin >> misc;
+			playerRace.setHeight(misc);
+
 			// query lang
+			cout << "You selected tiefling so your character speaks Common and Infernal" << endl;
+			playerRace.setLang1("Common");
+			playerRace.setLang2("Infernal");
+
 			// record speed
+			playerRace.setSpeed(30);
+
 			// add features
+			playerRace.setFeature("Darkvision: You can see in dim light within 60 feet of you as if it were bright light\n\nHellish Resistance: You are resistant to fire damage\n\nInfernal Legacy: You know the thaumaturgy cantrip. You learn more spells when you level up. See the player's handbook");
+
 			break;
 		default:
 			cout << "Invalid input." << endl;
 			valid = false;
 			break;
 		}
-	} while (valid = false);
+	} while (valid == false);
 
 	valid = true;
 
@@ -58,8 +153,8 @@ int main() {
 			// set hit dice to d8 and saves to wisdom and charisma
 			// select proficiency in history, insight, medicine, persuasion or religion
 			// add features for level as well as hp? 
-			// print list of spells ///R-Should sort spells by level, probably indicate casting time, and PHB page #
-			// print gold for equipment  ///R-We should at least print the page of the PHB where this is found.  I don't think it would be hard to print out a list of equipment, so say: "Choose from this:
+			// print list of spells
+			// print gold for equipment
 			break;
 		case 2:
 			// set hit dice to d12 and saves to strength and constitution
@@ -78,11 +173,11 @@ int main() {
 			valid = false;
 			break;
 		}
-	} while (valid = false);
+	} while (valid == false);
 
 	valid = true;
 
-
+	Character playerCharacter;
 	//select abilities using standard array
 	vector<int> vecOfAbil{ 15, 14, 13, 12, 10, 8 };
 
@@ -112,21 +207,27 @@ int main() {
 			{
 			case 1:
 				// add vecOfAbil number and race bonus to str
+				playerCharacter.setStrAbil(playerRace.getStrBonus() + vecOfAbil[k]);
 				break;
 			case 2:
 				// add vecOfAbil number and race bonus to dex
+				playerCharacter.setDexAbil(playerRace.getDexBonus() + vecOfAbil[k]);
 				break;
 			case 3:
 				// add vecOfAbil number and race bonus to con
+				playerCharacter.setConAbil(playerRace.getConBonus() + vecOfAbil[k]);
 				break;
 			case 4:
 				// add vecOfAbil number and race bonus to int
+				playerCharacter.setIntAbil(playerRace.getIntBonus() + vecOfAbil[k]);
 				break;
 			case 5:
 				// add vecOfAbil number and race bonus to wis
+				playerCharacter.setWisAbil(playerRace.getWisBonus() + vecOfAbil[k]);
 				break;
 			case 6:
 				// add vecOfAbil number and race bonus to chr
+				playerCharacter.setChrAbil(playerRace.getChrBonus() + vecOfAbil[k]);
 				break;
 			default:
 				cout << "Invalid selection. Either that ability already has a score or an invalid input was supplied." << endl;
@@ -134,14 +235,14 @@ int main() {
 				break;
 			} // end switch
 
-		} while (valid = false); //end do while
+		} while (valid == false); //end do while
 	} //end for
 	valid = true;
 
 
 	//select background
 	do {
-		cout << "Please select the background of your character:\n1. Acolyte\n2. Hermit\n3. Soldier" << endl; ///R - It might be a good idea to print a short summary of each background.
+		cout << "Please select the background of your character:\n1. Acolyte\n2. Hermit\n3. Soldier" << endl;
 		cin >> input;
 
 		switch (input)
@@ -168,7 +269,7 @@ int main() {
 			valid = false;
 			break;
 		}
-	} while (valid = false);
+	} while (valid == false);
 
 
 	return 0;
