@@ -7,15 +7,10 @@
 
 #include <iostream>
 #include "Skills.h"
+#include "Class.h"
+#include "Race.h"
+#include "Character.h"
 
-Skills::Skills() {
+Skills::Skills() : Class() {
 
-}
-
-//Member Functions
-
-int Skills::Passive() {
-
-	std::cout << "This does not have a passive ability. \n";
-	return -1;
 }
