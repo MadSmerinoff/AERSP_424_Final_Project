@@ -10,19 +10,21 @@
 
 #include "Skills.h"
 
-class STR
-{
+
+class STR : public Skills, public Character, public Race {
 
 public:
 	STR();
 
-	int SavingThrow();
-	int Check();
-	int Athletics();
+	void SetSavingThrowSTR();
+
+	void setAthleticsProf(bool);
+	int getAthleticsMod();
 
 private:
+	bool AthleticsProf = false;
 	int AthleticsMod = 0;
-	int STRSavingThrowMod = 0;
+	int STRSaveThrowMod = 0;
 
 };
 
