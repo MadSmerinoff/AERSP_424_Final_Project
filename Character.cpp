@@ -1,9 +1,24 @@
 #include "Character.h"
+#include "Race.h"
+#include "Class.h"
 
-Character::Character() {
-	strAbil, dexAbil, conAbil, intAbil, wisAbil, chrAbil = 0;
-	strMod, dexMod, conMod, intMod, wisMod, chrMod = 0;
+Character::Character(){
+	strAbil = 0;
+	dexAbil = 0;
+	conAbil = 0;
+	intAbil = 0;
+	wisAbil = 0;
+	chrAbil = 0;
+	strMod = 0;
+	dexMod = 0;
+	conMod = 0;
+	intMod = 0;
+	wisMod = 0;
+	chrMod = 0;
 	profBonus = 2;
+
+	charRace = Race();
+	charClass = Class();
 }
 
 void Character::setStrAbil(int a) {
@@ -91,4 +106,42 @@ void Character::calculateModifiers() {
 		chrMod = (chrAbil - 11) / 2;
 	else
 		chrMod = (chrAbil - 10) / 2;
+}
+
+
+int Character::getDexMod() {
+	return dexMod;
+}
+
+int Character::getConMod() {
+	return conMod;
+}
+
+int Character::getWisMod() {
+	return wisMod;
+}
+
+
+void Character::setHP(int h) {
+	hp = h;
+}
+
+int Character::getHP() {
+	return hp;
+}
+
+void Character::setAC(int a) {
+	ac = a;
+}
+
+int Character::getAC() {
+	return ac;
+}
+
+void Character::setRace(Race r) {
+	charRace = r;
+}
+
+void Character::setClass(Class c) {
+	charClass = c;
 }
