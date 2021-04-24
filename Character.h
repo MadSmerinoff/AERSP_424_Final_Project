@@ -19,9 +19,13 @@ public:
 	int getChrAbil();
 	void calculateModifiers();
 	
+	//Getters for ability mods
+	int getStrMod();
 	int getDexMod();
 	int getConMod();
+	int getIntMod();
 	int getWisMod();
+	int getCharMod();
 
 	void setHP(int);
 	int getHP();
