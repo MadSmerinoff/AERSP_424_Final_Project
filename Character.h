@@ -18,11 +18,23 @@ public:
 	void setChrAbil(int);
 	int getChrAbil();
 	void calculateModifiers();
+	
+	int getDexMod();
+	int getConMod();
+	int getWisMod();
+
+	void setHP(int);
+	int getHP();
+	void setAC(int);
+	int getAC();
+
+	void setRace(Race);
+	void setClass(Class);
 
 private:
 	Race charRace;
 	//Skillset charSkills;
-	//Class charClass;
+	Class charClass;
 
 	int profBonus;
 	
@@ -38,5 +50,7 @@ private:
 	int intMod;
 	int wisMod;
 	int chrMod;
-};
 
+	int hp;
+	int ac;
+};
