@@ -3,6 +3,7 @@
 #include "Race.h"
 #include <map>
 #include "Character.h"
+#include "Class.h"
 
 using namespace std;
 
@@ -140,44 +141,10 @@ int main() {
 	} while (valid == false);
 
 	valid = true;
+	
+	Character playerCharacter; //OVERARCHING CHARACTER CLASS IS MADE
+	playerCharacter.setRace(playerRace); //Race object is added to overarching character object
 
-
-	//select class as cleric, barbarian, rogue
-	do {
-		cout << "Please select the class of your character:\n1. Cleric\n2. Barbarian\n3. Fighter" << endl;
-		cin >> input;
-
-		switch (input)
-		{
-		case 1:
-			// set hit dice to d8 and saves to wisdom and charisma
-			// select proficiency in history, insight, medicine, persuasion or religion
-			// add features for level as well as hp? 
-			// print list of spells
-			// print gold for equipment
-			break;
-		case 2:
-			// set hit dice to d12 and saves to strength and constitution
-			// select proficiency in animal handling, athletics, intimidation, nature, perception
-			// add features for level as well as hp?
-			// print gold for equipment
-			break;
-		case 3:
-			// set hit dice to d10 and saves to strength and constitution
-			// select proficiency in acrobatics, animal handling, athletics, history, insight, intimidation, perception, survival
-			// add features for level as well as hp?
-			// print gold for equipment
-			break;
-		default:
-			cout << "Invalid input." << endl;
-			valid = false;
-			break;
-		}
-	} while (valid == false);
-
-	valid = true;
-
-	Character playerCharacter;
 	//select abilities using standard array
 	vector<int> vecOfAbil{ 15, 14, 13, 12, 10, 8 };
 
@@ -238,7 +205,85 @@ int main() {
 		} while (valid == false); //end do while
 	} //end for
 	valid = true;
+	Class playerClass;
 
+	//select class as cleric, barbarian, fighter
+	do {
+		cout << "Please select the class of your character:\n1. Cleric\n2. Barbarian\n3. Fighter" << endl;
+		cin >> input;
+
+		switch (input)
+		{
+		case 1:
+			// set hit dice to d8 and saves to wisdom and charisma
+			playerClass.setHitDice(8);
+			playerClass.setProfWis(true);
+			playerClass.setProfChr(true);
+
+			// select proficiency in history, insight, medicine, persuasion or religion
+
+			// add features
+			playerClass.setClassFeatures("You are a spellcaster. You can ritual cast and you use a holy symbol as your spellcasting focus.");
+			
+			// print list of spells
+			cout << "As a cleric, you may select 3 cantrips and " << playerCharacter.getWisMod() + 1 << " 1st Level Spells from the following list:" << endl;
+			cout << playerClass.getSpellList();
+
+			//calc HP and AC
+			cout << "Your max HP is: " << playerClass.getHitDice() + playerCharacter.getConMod() << endl;
+			playerCharacter.setHP(playerClass.getHitDice() + playerCharacter.getConMod());
+
+			cout << "You base AC is: " << playerCharacter.getDexMod() + 10 << endl;
+			playerCharacter.setAC(playerCharacter.getDexMod() + 10);
+
+			break;
+		case 2:
+			// set hit dice to d12 and saves to strength and constitution
+			playerClass.setHitDice(12);
+			playerClass.setProfStr(true);
+			playerClass.setProfCon(true);
+
+			// select proficiency in animal handling, athletics, intimidation, nature, perception
+
+			// add features
+			playerClass.setClassFeatures("Rage: As a bonus action, you can enter a rage in combat. See the player's handbook for a list of rage benefits. You may only rage twice before taking a long rest.\n\n Unarmored Defense: While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a Shield and still gain this benefit.");
+			
+			//calc HP and AC
+			cout << "Your max HP is: " << playerClass.getHitDice() + playerCharacter.getConMod() << endl;
+			playerCharacter.setHP(playerClass.getHitDice() + playerCharacter.getConMod());
+
+			cout << "You base AC is: " << playerCharacter.getDexMod() + playerCharacter.getConMod() + 10 << endl;
+			playerCharacter.setAC(playerCharacter.getDexMod() + playerCharacter.getConMod() + 10);
+
+			break;
+		case 3:
+			// set hit dice to d10 and saves to strength and constitution
+			playerClass.setHitDice(10);
+			playerClass.setProfStr(true);
+			playerClass.setProfCon(true);
+
+			// select proficiency in acrobatics, animal handling, athletics, history, insight, intimidation, perception, survival
+			
+			// add features
+			playerClass.setClassFeatures("Choose your fighting style: Archery, Defense, Dueling, Great Weapon Fighting, Protection, or Two Weapon Fighting. More details on each fighting style can be found in the player's handbook.");
+
+			//calc HP and AC
+			cout << "Your max HP is: " << playerClass.getHitDice() + playerCharacter.getConMod() << endl;
+			playerCharacter.setHP(playerClass.getHitDice() + playerCharacter.getConMod());
+
+			cout << "You base AC is: " << playerCharacter.getDexMod() + 10 << endl;
+			playerCharacter.setAC(playerCharacter.getDexMod() + 10);
+			
+			break;
+		default:
+			cout << "Invalid input." << endl;
+			valid = false;
+			break;
+		}
+	} while (valid == false);
+
+	valid = true;
+	playerCharacter.setClass(playerClass); //class object is added to overarching Character Object
 
 	//select background
 	do {
@@ -251,17 +296,20 @@ int main() {
 			// Add proficiency in insight and religion; correct dupes?
 			// Add 2 languages that are not dupes or do not correct?
 			// Add equipment
+			// print gold for equipment
 			// Roll on tables?
 			break;
 		case 2:
 			// Add proficiency in medicine and religion and herbalism kit; correct dupes?
 			// Add language of choice; correct dupes?
 			// Add equipment
+			// print gold for equipment
 			// Roll on tables?
 			break;
 		case 3:
 			// Add proficiency in athetics and intimidation and playing cards; correct dupes?
 			// Add equipment
+			// print gold for equipment
 			// Roll on tables?
 			break;
 		default:
