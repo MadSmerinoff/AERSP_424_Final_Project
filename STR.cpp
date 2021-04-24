@@ -7,24 +7,40 @@
 
 #include "STR.h"
 #include "Skills.h"
+#include "Class.h"
+#include "Race.h"
+#include "Character.h"
 
-STR::STR() {
-
+STR::STR() : Skills(), Character(), Race() {
+	
 }
 
-int STR::SavingThrow() {
-
+void STR::SetSavingThrowSTR() {
 	//Calculation Things, need to reference other things
-	return STRSavingThrowMod;
+	
+	if (Class::getProfStr() == true) {
+
+		STRSaveThrowMod = Character::getStrMod() + 2;
+	}
+	else {
+
+		STRSaveThrowMod = Character::getStrMod();
+	}
+	
 }
 
-int STR::Check() {
-
-	//Returns STR modifier, need to link to other classes
+void STR::setAthleticsProf(bool AP) {
+	AthleticsProf = AP;
 }
 
-int STR::Athletics() {
+int STR::getAthleticsMod() {
 
-	//Checks for proficiency, adds STRMOD
+	if (AthleticsProf == true) {
+		AthleticsMod = Character::getStrMod() + 2;
+	}
+	else {
+		AthleticsMod = Character::getStrMod();
+	}
+
 	return AthleticsMod;
 }
