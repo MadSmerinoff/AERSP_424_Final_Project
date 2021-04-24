@@ -108,6 +108,9 @@ void Character::calculateModifiers() {
 		chrMod = (chrAbil - 10) / 2;
 }
 
+int Character::getStrMod() {
+	return strMod;
+}
 
 int Character::getDexMod() {
 	return dexMod;
@@ -117,10 +120,17 @@ int Character::getConMod() {
 	return conMod;
 }
 
+int Character::getIntMod() {
+	return intMod;
+}
+
 int Character::getWisMod() {
 	return wisMod;
 }
 
+int Character::getCharMod() {
+	return chrMod;
+}
 
 void Character::setHP(int h) {
 	hp = h;
