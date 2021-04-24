@@ -8,15 +8,19 @@
 #ifndef SKILLS_H_
 #define SKILLS_H_
 
-class Skills {
+#include "Class.h"
+#include "Class.h"
+#include "Race.h"
+#include "Character.h"
+
+class Skills : public Class {
 
 public:
 
 
 protected:
-	virtual int SavingThrow() = 0;
-	virtual int Check() = 0;
-	virtual int Passive();
+	virtual void SetSavingThrow() = 0;
+	virtual int getSavingThrow() = 0;
 
 	virtual ~Skills() {};
 
