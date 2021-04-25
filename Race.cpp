@@ -11,8 +11,9 @@ Race::Race() {
 	wisBonus = 0;
 	chrBonus = 0;
 	lang1 = "Common";
-	lang2 = "Null";
-	lang3 = "Null";
+	lang2 = "";
+	lang3 = "";
+	lang4 = "";
 	age = 0;
 	weight = 0;
 	height = 0;
@@ -134,4 +135,12 @@ void Race::setFeature(string f) {
 
 string Race::getFeature() {
 	return feature;
+}
+
+void Race::setLang4(string l) {
+	lang4 = l;
+}
+
+string Race::getLang4() {
+	return lang4;
 }
