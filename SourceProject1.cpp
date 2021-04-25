@@ -14,7 +14,9 @@ int main() {
 	int misc; //dummy int variable used for user selections
 	bool valid = true; //used in do while loops to check for valid inputs from user
 	
+	Character playerCharacter; //OVERARCHING CHARACTER CLASS IS MADE
 	Race playerRace;
+	Class playerClass;
 	map<int, string> mapLanguages; //this and its pairs are used for language selection in race and background selection
 	mapLanguages.insert(pair<int, string>(1, "Common"));
 	mapLanguages.insert(pair<int, string>(2, "Elvish"));
@@ -22,6 +24,10 @@ int main() {
 	mapLanguages.insert(pair<int, string>(4, "Orcish"));
 	mapLanguages.insert(pair<int, string>(5, "Gnomish"));
 	mapLanguages.insert(pair<int, string>(6, "Infernal"));
+
+	string raceName;
+	string className;
+	string backgroundName;
 	
 	
 	//select race Human, half orc, tiefling
@@ -32,6 +38,8 @@ int main() {
 		switch (input)
 		{
 		case 1:
+			raceName = "Human";
+
 			// add +1 to all stats
 			playerRace.setStrBonus(1);
 			playerRace.setDexBonus(1);
@@ -73,6 +81,8 @@ int main() {
 
 			break;
 		case 2:
+			raceName = "Half-Orc";
+
 			// add +2 to strength, +1 to con
 			playerRace.setStrBonus(2);
 			playerRace.setConBonus(1);
@@ -104,6 +114,8 @@ int main() {
 
 			break;
 		case 3:
+			raceName = "Tiefling";
+
 			// add +2 to char, +1 to int
 			playerRace.setChrBonus(2);
 			playerRace.setIntBonus(1);
@@ -142,7 +154,7 @@ int main() {
 
 	valid = true;
 	
-	Character playerCharacter; //OVERARCHING CHARACTER CLASS IS MADE
+	
 	playerCharacter.setRace(playerRace); //Race object is added to overarching character object
 
 	//select abilities using standard array
@@ -205,7 +217,6 @@ int main() {
 		} while (valid == false); //end do while
 	} //end for
 	valid = true;
-	Class playerClass;
 
 	//select class as cleric, barbarian, fighter
 	do {
@@ -215,6 +226,8 @@ int main() {
 		switch (input)
 		{
 		case 1:
+			className = "Cleric";
+
 			// set hit dice to d8 and saves to wisdom and charisma
 			playerClass.setHitDice(8);
 			playerClass.setProfWis(true);
@@ -236,8 +249,13 @@ int main() {
 			cout << "You base AC is: " << playerCharacter.getDexMod() + 10 << endl;
 			playerCharacter.setAC(playerCharacter.getDexMod() + 10);
 
+			cout << "Your starting gold amount is 80." << endl;
+			playerClass.setGold(80);
+
 			break;
 		case 2:
+			className = "Barbarian";
+
 			// set hit dice to d12 and saves to strength and constitution
 			playerClass.setHitDice(12);
 			playerClass.setProfStr(true);
@@ -255,8 +273,13 @@ int main() {
 			cout << "You base AC is: " << playerCharacter.getDexMod() + playerCharacter.getConMod() + 10 << endl;
 			playerCharacter.setAC(playerCharacter.getDexMod() + playerCharacter.getConMod() + 10);
 
+			cout << "Your starting gold amount is 200." << endl;
+			playerClass.setGold(200);
+
 			break;
 		case 3:
+			className = "Fighter";
+
 			// set hit dice to d10 and saves to strength and constitution
 			playerClass.setHitDice(10);
 			playerClass.setProfStr(true);
@@ -274,6 +297,9 @@ int main() {
 			cout << "You base AC is: " << playerCharacter.getDexMod() + 10 << endl;
 			playerCharacter.setAC(playerCharacter.getDexMod() + 10);
 			
+			cout << "Your starting gold amount is 80." << endl;
+			playerClass.setGold(200);
+
 			break;
 		default:
 			cout << "Invalid input." << endl;
@@ -282,6 +308,7 @@ int main() {
 		}
 	} while (valid == false);
 
+	playerClass.calcSaveMods(playerCharacter.getStrMod(), playerCharacter.getDexMod(), playerCharacter.getConMod(), playerCharacter.getIntMod(), playerCharacter.getWisMod(), playerCharacter.getCharMod());
 	valid = true;
 	playerCharacter.setClass(playerClass); //class object is added to overarching Character Object
 
@@ -293,24 +320,61 @@ int main() {
 		switch (input)
 		{
 		case 1:
+			backgroundName = "Acolyte";
+
 			// Add proficiency in insight and religion; correct dupes?
-			// Add 2 languages that are not dupes or do not correct?
-			// Add equipment
-			// print gold for equipment
-			// Roll on tables?
+
+
+			// Add 2 languages
+			cout << "Your character already knows the following langauges: " << playerRace.getLang1() << " " << playerRace.getLang2() << " " << playerRace.getLang3() << endl;
+			cout << "Please select 2 additional languages from the following list. Do not select duplicates: \n1. Elvish\n2. Dwarvish\n3. Orcish\n4. Gnomish\n5. Infernal" << endl;
+			misc = misc + 1; //this line of code adjusts for the lack of common in the map list;
+			if (misc <= 0 || misc >= 6) {
+				misc = 1;
+				cout << "You input a value not listed so we've defaulted your second language to Elvish" << endl;
+			}
+			playerRace.setLang3(mapLanguages[misc]); //used map to turn user input of numbers into a string without using switch statement
+
+			cout << "Please select 1 additional languages from the following list. Do not select duplicates: \n1. Elvish\n2. Dwarvish\n3. Orcish\n4. Gnomish\n5. Infernal" << endl;
+			misc = misc + 1; //this line of code adjusts for the lack of common in the map list;
+			if (misc <= 0 || misc >= 6) {
+				misc = 1;
+				cout << "You input a value not listed so we've defaulted your second language to Elvish" << endl;
+			}
+			playerRace.setLang4(mapLanguages[misc]); //used map to turn user input of numbers into a string without using switch statement
+
+			//add background gold
+			playerClass.setGold(playerClass.getGold() + 15);
+			
 			break;
 		case 2:
+			backgroundName = "Hermit";
+
 			// Add proficiency in medicine and religion and herbalism kit; correct dupes?
-			// Add language of choice; correct dupes?
-			// Add equipment
-			// print gold for equipment
-			// Roll on tables?
+			
+
+			// Add language of choice;
+			cout << "Please select 1 additional languages from the following list. Do not select duplicates: \n1. Elvish\n2. Dwarvish\n3. Orcish\n4. Gnomish\n5. Infernal" << endl;
+			misc = misc + 1; //this line of code adjusts for the lack of common in the map list;
+			if (misc <= 0 || misc >= 6) {
+				misc = 1;
+				cout << "You input a value not listed so we've defaulted your second language to Elvish" << endl;
+			}
+			playerRace.setLang3(mapLanguages[misc]); //used map to turn user input of numbers into a string without using switch statement
+
+			//add background gold
+			playerClass.setGold(playerClass.getGold() + 5);
+
 			break;
 		case 3:
-			// Add proficiency in athetics and intimidation and playing cards; correct dupes?
-			// Add equipment
-			// print gold for equipment
-			// Roll on tables?
+			backgroundName = "Soldier";
+
+			// Add proficiency in athetics and intimidation and playing cards;
+
+
+			//add background gold
+			playerClass.setGold(playerClass.getGold() + 10);
+
 			break;
 		default:
 			cout << "Invalid input." << endl;
@@ -319,6 +383,20 @@ int main() {
 		}
 	} while (valid == false);
 
+	playerCharacter.setRace(playerRace); //Race object is added to overarching character object
+	playerCharacter.setClass(playerClass);
+	
+	//print the whole shebang
+	cout << "Your character is complete. Here is your sheet information:" << endl;
+	cout << "You are a level 1 " << raceName << " " << className << " with the background of a/an " << backgroundName << endl;
+
+	cout << "You have a max HP of " << playerCharacter.getHP() << ", an Armor Class of " << playerCharacter.getAC() << ", and a speed of " << playerRace.getSpeed() << "." << endl;
+
+	cout << "Your ability scores are: \nStrength: " << playerCharacter.getStrAbil() << "\nDexterity: " << playerCharacter.getDexAbil() << "\nConsitution: " << playerCharacter.getConAbil() << "\nIntelligence: " << playerCharacter.getIntAbil() << "\nWisdom: " << playerCharacter.getWisAbil() << "\nCharisma: " << playerCharacter.getChrAbil() << endl;
+
+	cout << "Your proficiency bonus is: +2" << endl;
+
+	cout << "You know the following languages: " << playerRace.getLang1() << " " << playerRace.getLang2() << " " << playerRace.getLang3() << " " << playerRace.getLang4() << endl;
 
 	return 0;
 }
