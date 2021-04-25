@@ -12,7 +12,7 @@ CHA::CHA(bool cha1) : Skills() {
 
 }
 
-void CHA::SetSavingThrowCHA() {
+void CHA::SetSavingThrow() {
 
 	if (Class::getProfChr() == true) {
 		CHASaveThrowMod = Character::getCharMod() + 2;
@@ -20,6 +20,10 @@ void CHA::SetSavingThrowCHA() {
 	else {
 		CHASaveThrowMod = Character::getCharMod();
 	}
+}
+
+int CHA::getSavingThrow() {
+	return CHASaveThrowMod;
 }
 
 void CHA::setDeceptionProf(bool DP) {
