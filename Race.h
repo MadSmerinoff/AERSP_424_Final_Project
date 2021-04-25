@@ -32,6 +32,8 @@ public:
 	string getLang2();
 	void setLang3(string);
 	string getLang3();
+	void setLang4(string);
+	string getLang4();
 
 	void setAge(float);
 	float getAge();
@@ -54,9 +56,9 @@ private:
 	string lang1;
 	string lang2;
 	string lang3;
+	string lang4;
 	float age;
 	float weight;
 	float height;
 	string feature;
 };
-
