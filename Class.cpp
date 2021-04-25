@@ -16,6 +16,7 @@ Class::Class() {
 	saveModChr = 0;
 	classFeatures = "Null";
 	spellList = "Cleric Cantrips: Guidance, Light, Mending, Sacred Flame, Spare the Dying, Thaumaturgy\n\n1st Level Spells: Bane, Bless, Command, Create of Destroy Water, Cure Wounds, Detect Good and Evil, Detect Magic, Detect Poison and Disease, Guiding Bolt, Healing Word, Inflict Wounds, Protection from Good and Evil, Purify Food and Drink, Sanctuary, and Shield of Faith\n\nSee Player's Handbook for more details.";
+	gold = 0;
 }
 
 void Class::setHitDice(int h) {
@@ -142,4 +143,12 @@ string Class::getClassFeatures() {
 
 string Class::getSpellList() {
 	return spellList;
+}
+
+void Class::setGold(int g) {
+	gold = g;
+}
+
+int Class::getGold() {
+	return gold;
 }
