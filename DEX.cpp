@@ -12,7 +12,7 @@ DEX::DEX(float dex1, float dex2) : Skills() {
 
 }
 
-void DEX::SetSavingThrowDEX() {
+void DEX::SetSavingThrow() {
 
 	if (Class::getProfDex() == true) {
 
@@ -23,6 +23,10 @@ void DEX::SetSavingThrowDEX() {
 		DEXSaveThrowMod = Character::getDexMod();
 	}
 
+}
+
+int DEX::getSavingThrow() {
+	return DEXSaveThrowMod;
 }
 
 //Setters and Getters for Skills
