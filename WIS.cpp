@@ -95,3 +95,15 @@ int WIS::getSurvivalMod() {
 	}
 	return SurvivalMod;
 }
+
+//Passive Skills
+
+int WIS::getPassivePerception() {
+	PassivePerception = WIS::getPerceptionMod() + 10;
+	return PassivePerception;
+}
+
+int WIS::getPassiveInsight() {
+	PassiveInsight = WIS::getInsightMod() + 10;
+	return PassiveInsight;
+}
