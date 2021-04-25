@@ -12,7 +12,7 @@ Constitution::Constitution(char cont) : Skills() {
 
 }
 
-void Constitution::SetSavingThrowCON() {
+void Constitution::SetSavingThrow() {
 
 	if (Class::getProfCon() == true) {
 		CONSaveThrowMod = Character::getDexMod() + 2;
@@ -21,4 +21,8 @@ void Constitution::SetSavingThrowCON() {
 		CONSaveThrowMod = Character::getDexMod();
 	}
 
+}
+
+int Constitution::getSavingThrow() {
+	return CONSaveThrowMod;
 }
