@@ -15,7 +15,8 @@ class STR : public Skills, public Character, public Race {
 public:
 	STR(float str);
 
-	void SetSavingThrowSTR();
+	void SetSavingThrow();
+	int getSavingThrow();
 
 	void setAthleticsProf(bool);
 	int getAthleticsMod();
