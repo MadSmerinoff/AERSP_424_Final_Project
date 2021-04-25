@@ -15,7 +15,8 @@ class Constitution : public Skills {
 public:
 	Constitution(char cont);
 
-	void SetSavingThrowCON();
+	void SetSavingThrow();
+	int getSavingThrow();
 
 private:
 	int CONSaveThrowMod = 0;
