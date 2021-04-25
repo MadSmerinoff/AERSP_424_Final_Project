@@ -9,11 +9,11 @@
 #define SKILLS_H_
 
 #include "Class.h"
-#include "Class.h"
 #include "Race.h"
 #include "Character.h"
 
-class Skills : public Class {
+
+class Skills : public Class, public Character, public Race {
 
 public:
 
