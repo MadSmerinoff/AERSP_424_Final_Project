@@ -12,7 +12,7 @@ WIS::WIS(char wis1, char wis2) : Skills() {
 
 }
 
-void WIS::SetSavingThrowWIS() {
+void WIS::SetSavingThrow() {
 
 	if (Class::getProfWis() == true) {
 		WISSaveThrowMod = Character::getWisMod() + 2;
@@ -20,6 +20,10 @@ void WIS::SetSavingThrowWIS() {
 	else {
 		WISSaveThrowMod = Character::getWisMod();
 	}
+}
+
+int WIS::getSavingThrow() {
+	return WISSaveThrowMod;
 }
 
 void WIS::setAnimalHandlingProf(bool AHP) {
