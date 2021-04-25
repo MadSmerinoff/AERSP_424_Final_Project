@@ -8,7 +8,7 @@
 #include "Constitution.h"
 #include "Skills.h"
 
-Constitution::Constitution() : Skills(), Character(), Class(), Race() {
+Constitution::Constitution(char cont) : Skills() {
 
 }
 
