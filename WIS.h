@@ -33,6 +33,10 @@ public:
 	void setSurvivalProf(bool);
 	int getSurvivalMod();
 
+	int getPassivePerception();
+
+	int getPassiveInsight();
+
 private:
 	bool AnimalHandlingProf = false;
 	int AnimalHandlingMod = 0;
@@ -50,6 +54,10 @@ private:
 	int SurvivalMod = 0;
 
 	int WISSaveThrowMod = 0;
+
+	//PassiveSkills
+	int PassivePerception = 0;
+	int PassiveInsight = 0;
 
 };
 
