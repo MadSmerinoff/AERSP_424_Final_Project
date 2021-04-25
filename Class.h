@@ -36,6 +36,9 @@ public:
 	
 	string getSpellList();
 
+	void setGold(int);
+	int getGold();
+
 private:
 	int hitDice;
 	bool profStr;
@@ -52,5 +55,5 @@ private:
 	int saveModChr;
 	string classFeatures;
 	string spellList;
+	int gold;
 };
-
