@@ -9,7 +9,7 @@
 #include "INT.h"
 #include "Skills.h"
 
-INT::INT() : Skills(), Class(), Character(), Race() {
+INT::INT(int think) : Skills() {
 
 }
 
