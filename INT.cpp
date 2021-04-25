@@ -101,3 +101,10 @@ int INT::getReligionMod() {
 	}
 	return ReligionMod;
 }
+
+//Passive Skills
+
+int INT::getPassiveInvestigation() {
+	PassiveInvestigation = INT::getInvestigationMod() + 10;
+	return PassiveInvestigation;
+}
