@@ -8,7 +8,7 @@
 #include "DEX.h"
 #include "Skills.h"
 
-DEX::DEX() : Skills(), Class(), Character(), Race() {
+DEX::DEX(float dex1, float dex2) : Skills() {
 
 }
 
