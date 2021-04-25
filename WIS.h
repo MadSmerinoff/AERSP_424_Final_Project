@@ -13,7 +13,7 @@
 class WIS : public Skills {
 
 public:
-	WIS();
+	WIS(char wis1, char wis2);
 
 	void SetSavingThrowWIS();
 
