@@ -8,7 +8,7 @@
 #include "CHA.h"
 #include "Skills.h"
 
-CHA::CHA() : Skills() {
+CHA::CHA(bool cha1) : Skills() {
 
 }
 
