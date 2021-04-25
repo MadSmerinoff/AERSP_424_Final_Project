@@ -15,7 +15,8 @@ class CHA : public Skills {
 public:
 	CHA(bool cha1);
 
-	void SetSavingThrowCHA();
+	void SetSavingThrow();
+	int getSavingThrow();
 
 	void setDeceptionProf(bool);
 	int getDeceptionMod();
