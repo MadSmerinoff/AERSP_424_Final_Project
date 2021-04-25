@@ -10,10 +10,10 @@
 
 #include "Skills.h"
 
-class Constitution : public Skills, public Character, public Class, public Race {
+class Constitution : public Skills {
 
 public:
-	Constitution();
+	Constitution(char cont);
 
 	void SetSavingThrowCON();
 
