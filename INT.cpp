@@ -13,7 +13,7 @@ INT::INT(int think) : Skills() {
 
 }
 
-void INT::SetSavingThrowINT() {
+void INT::SetSavingThrow() {
 
 	if (Class::getProfInt() == true) {
 
@@ -24,6 +24,10 @@ void INT::SetSavingThrowINT() {
 		INTSaveThrowMod = Character::getIntMod();
 	}
 
+}
+
+int INT::getSavingThrow() {
+	return INTSaveThrowMod;
 }
 
 //Setters and Getters for Skills
