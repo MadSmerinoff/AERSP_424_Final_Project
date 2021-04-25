@@ -13,7 +13,7 @@
 class CHA : public Skills {
 
 public:
-	CHA();
+	CHA(bool cha1);
 
 	void SetSavingThrowCHA();
 
