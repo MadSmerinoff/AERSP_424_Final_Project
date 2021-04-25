@@ -10,11 +10,10 @@
 
 #include "Skills.h"
 
-
 class STR : public Skills, public Character, public Race {
 
 public:
-	STR();
+	STR(float str);
 
 	void SetSavingThrowSTR();
 
