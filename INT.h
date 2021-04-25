@@ -10,10 +10,10 @@
 
 #include "Skills.h"
 
-class INT : public Skills, public Character, public Class, Race {
+class INT : public Skills {
 
 public:
-	INT();
+	INT(int think);
 
 	void SetSavingThrowINT();
 
