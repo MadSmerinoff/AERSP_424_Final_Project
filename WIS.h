@@ -15,7 +15,8 @@ class WIS : public Skills {
 public:
 	WIS(char wis1, char wis2);
 
-	void SetSavingThrowWIS();
+	void SetSavingThrow();
+	int getSavingThrow();
 
 	void setAnimalHandlingProf(bool);
 	int getAnimalHandlingMod();
