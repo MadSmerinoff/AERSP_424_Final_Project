@@ -13,7 +13,7 @@ STR::STR(float str) : Skills(), Character(), Race() {
 	
 }
 
-void STR::SetSavingThrowSTR() {
+void STR::SetSavingThrow() {
 	
 	if (Class::getProfStr() == true) {
 
@@ -24,6 +24,10 @@ void STR::SetSavingThrowSTR() {
 		STRSaveThrowMod = Character::getStrMod();
 	}
 	
+}
+
+int STR::getSavingThrow() {
+	return STRSaveThrowMod;
 }
 
 void STR::setAthleticsProf(bool AP) {
