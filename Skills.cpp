@@ -11,6 +11,8 @@
 #include "Race.h"
 #include "Character.h"
 
-Skills::Skills() : Class() {
+#include <map>
+
+Skills::Skills() : Class(), Character(), Race() {
 
 }
