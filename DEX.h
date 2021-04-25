@@ -10,10 +10,10 @@
 
 #include "Skills.h"
 
-class DEX : public Skills, public Character, public Class, public Race {
+class DEX : public Skills {
 
 public:
-	DEX();
+	DEX(float dex1, float dex2);
 
 	void SetSavingThrowDEX();
 
