@@ -8,7 +8,7 @@
 #include "WIS.h"
 #include "Skills.h"
 
-WIS::WIS() : Skills() {
+WIS::WIS(char wis1, char wis2) : Skills() {
 
 }
 
