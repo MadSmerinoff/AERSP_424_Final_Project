@@ -15,7 +15,8 @@ class INT : public Skills {
 public:
 	INT(int think);
 
-	void SetSavingThrowINT();
+	void SetSavingThrow();
+	int getSavingThrow();
 
 	void setArcanaProf(bool);
 	int getArcanaMod();
