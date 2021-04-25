@@ -7,16 +7,13 @@
 
 #include "STR.h"
 #include "Skills.h"
-#include "Class.h"
-#include "Race.h"
-#include "Character.h"
 
-STR::STR() : Skills(), Character(), Race() {
+
+STR::STR(float str) : Skills(), Character(), Race() {
 	
 }
 
 void STR::SetSavingThrowSTR() {
-	//Calculation Things, need to reference other things
 	
 	if (Class::getProfStr() == true) {
 
