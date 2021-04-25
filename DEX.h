@@ -15,7 +15,8 @@ class DEX : public Skills {
 public:
 	DEX(float dex1, float dex2);
 
-	void SetSavingThrowDEX();
+	void SetSavingThrow();
+	int getSavingThrow();
 
 	void setAcrobaticsProf(bool);
 	int getAcrobaticsMod();
