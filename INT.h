@@ -33,6 +33,9 @@ public:
 	void setReligionProf(bool);
 	int getReligionMod();
 
+	//PassiveSkills
+	int getPassiveInvestigation();
+
 private:
 	bool ArcanaProf = false;
 	int ArcanaMod = 0;
@@ -50,6 +53,8 @@ private:
 	int ReligionMod = 0;
 
 	int INTSaveThrowMod = 0;
+
+	int PassiveInvestigation = 0;
 
 };
 
