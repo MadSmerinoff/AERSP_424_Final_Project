@@ -29,6 +29,15 @@ int DEX::getSavingThrow() {
 	return DEXSaveThrowMod;
 }
 
+int DEX::PrintSkillsDEX() {
+	cout << "Dexterity Skills: " << endl;
+	cout << "Saving Throw: " << DEX::getSavingThrow() << endl;
+	cout << "Acrobatics: " << DEX::getAcrobaticsMod() << endl;
+	cout << "Sleight of Hand: " << DEX::getSleightofHandMod() << endl;
+	cout << "Stealth: " << DEX::getStealthMod() << endl;
+	cout << "----------" << endl;
+}
+
 //Setters and Getters for Skills
 void DEX::setAcrobaticsProf(bool AP) {
 	AcrobaticsProf = AP;
