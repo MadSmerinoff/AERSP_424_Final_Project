@@ -8,20 +8,22 @@
 
 #include "INT.h"
 #include "Skills.h"
+#include "Class.h"
+#include "Character.h"
 
 INT::INT(int think) : Skills() {
 
 }
 
-void INT::SetSavingThrow() {
+void INT::SetSavingThrow(Character pCharacter, Class pClass) {
 
-	if (Class::getProfInt() == true) {
+	if (pClass.getProfInt() == true) {
 
-		INTSaveThrowMod = Character::getIntMod() + 2;
+		INTSaveThrowMod = pCharacter.getIntMod() + 2;
 	}
 	else {
 
-		INTSaveThrowMod = Character::getIntMod();
+		INTSaveThrowMod = pCharacter.getIntMod();
 	}
 
 }
@@ -30,14 +32,14 @@ int INT::getSavingThrow() {
 	return INTSaveThrowMod;
 }
 
-int INT::PrintSkillsINT() {
+int INT::PrintSkillsINT(Character pCharacter) {
 	cout << "Intelligence Skills: " << endl;
 	cout << "Saving Throw: " << INT::getSavingThrow() << endl;
-	cout << "Arcana: " << INT::getArcanaMod() << endl;
-	cout << "History: " << INT::getHistoryMod() << endl;
-	cout << "Investigation: " << INT::getInvestigationMod() << endl;
-	cout << "Nature: " << INT::getNatureMod() << endl;
-	cout << "Religion: " << INT::getReligionMod() << endl;
+	cout << "Arcana: " << INT::getArcanaMod(pCharacter) << endl;
+	cout << "History: " << INT::getHistoryMod(pCharacter) << endl;
+	cout << "Investigation: " << INT::getInvestigationMod(pCharacter) << endl;
+	cout << "Nature: " << INT::getNatureMod(pCharacter) << endl;
+	cout << "Religion: " << INT::getReligionMod(pCharacter) << endl;
 	cout << "Passive Investigation: " << INT::getPassiveInvestigation() << endl;
 	cout << "----------" << endl;
 	return 0;
@@ -47,13 +49,13 @@ int INT::PrintSkillsINT() {
 void INT::setArcanaProf(bool AP) {
 	ArcanaProf = AP;
 }
-int INT::getArcanaMod() {
+int INT::getArcanaMod(Character pCharacter) {
 
 	if (ArcanaProf == true) {
-		ArcanaMod = Character::getIntMod() + 2;
+		ArcanaMod = pCharacter.getIntMod() + 2;
 	}
 	else {
-		ArcanaMod = Character::getIntMod();
+		ArcanaMod = pCharacter.getIntMod();
 	}
 	return ArcanaMod;
 }
@@ -61,13 +63,13 @@ int INT::getArcanaMod() {
 void INT::setHistoryProf(bool HP) {
 	HistoryProf = HP;
 }
-int INT::getHistoryMod() {
+int INT::getHistoryMod(Character pCharacter) {
 
 	if (HistoryProf == true) {
-		HistoryMod = Character::getIntMod() + 2;
+		HistoryMod = pCharacter.getIntMod() + 2;
 	}
 	else {
-		HistoryMod = Character::getIntMod();
+		HistoryMod = pCharacter.getIntMod();
 	}
 	return HistoryMod;
 
@@ -76,13 +78,13 @@ int INT::getHistoryMod() {
 void INT::setInvestigationProf(bool IP) {
 	InvestigationProf = IP;
 }
-int INT::getInvestigationMod() {
+int INT::getInvestigationMod(Character pCharacter) {
 
 	if (InvestigationProf == true) {
-		InvestigationMod = Character::getIntMod() + 2;
+		InvestigationMod = pCharacter.getIntMod() + 2;
 	}
 	else {
-		InvestigationMod = Character::getIntMod();
+		InvestigationMod = pCharacter.getIntMod();
 	}
 	return InvestigationMod;
 }
@@ -90,13 +92,13 @@ int INT::getInvestigationMod() {
 void INT::setNatureProf(bool NP) {
 	NatureProf = NP;
 }
-int INT::getNatureMod() {
+int INT::getNatureMod(Character pCharacter) {
 	
 	if (NatureProf == true) {
-		NatureMod = Character::getIntMod() + 2;
+		NatureMod = pCharacter.getIntMod() + 2;
 	}
 	else {
-		NatureMod = Character::getIntMod();
+		NatureMod = pCharacter.getIntMod();
 	}
 	return NatureMod;
 }
@@ -104,20 +106,20 @@ int INT::getNatureMod() {
 void INT::setReligionProf(bool RP) {
 	ReligionProf = RP;
 }
-int INT::getReligionMod() {
+int INT::getReligionMod(Character pCharacter) {
 
 	if (ReligionProf == true) {
-		ReligionMod = Character::getIntMod() + 2;
+		ReligionMod = pCharacter.getIntMod() + 2;
 	}
 	else {
-		ReligionMod = Character::getIntMod();
+		ReligionMod = pCharacter.getIntMod();
 	}
 	return ReligionMod;
 }
 
 //Passive Skills
 
-int INT::getPassiveInvestigation() {
-	PassiveInvestigation = INT::getInvestigationMod() + 10;
+int INT::getPassiveInvestigation(Character pCharacter) {
+	PassiveInvestigation = INT::getInvestigationMod(pCharacter) + 10;
 	return PassiveInvestigation;
 }
