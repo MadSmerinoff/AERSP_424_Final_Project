@@ -26,6 +26,20 @@ int WIS::getSavingThrow() {
 	return WISSaveThrowMod;
 }
 
+int WIS::PrintSkillsWIS() {
+	cout << "Wisdom Skill: " << endl;
+	cout << "Saving Throw: " << WIS::getSavingThrow() << endl;
+	cout << "Animal Handling: " << WIS::getAnimalHandlingMod() << endl;
+	cout << "Insight: " << WIS::getInsightMod() << endl;
+	cout << "Medicine: " << WIS::getMedicineMod() << endl;
+	cout << "Perception: " << WIS::getPerceptionMod() << endl;
+	cout << "Survival: " << WIS::getSurvivalMod() << endl;
+	cout << "Passive Perception: " << WIS::getPassivePerception() << endl;
+	cout << "Passive Insight: " << WIS::getPassiveInsight() << endl;
+	cout << "----------" << endl;
+}
+
+//Setters and Getters for Skills
 void WIS::setAnimalHandlingProf(bool AHP) {
 	AnimalHandlingProf = AHP;
 }
