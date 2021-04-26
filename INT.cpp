@@ -40,6 +40,7 @@ int INT::PrintSkillsINT() {
 	cout << "Religion: " << INT::getReligionMod() << endl;
 	cout << "Passive Investigation: " << INT::getPassiveInvestigation() << endl;
 	cout << "----------" << endl;
+	return 0;
 }
 
 //Setters and Getters for Skills
