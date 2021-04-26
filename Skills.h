@@ -16,7 +16,7 @@
 class Skills : public Class, public Character, public Race {
 
 public:
-
+	Skills();
 
 protected:
 	virtual void SetSavingThrow() = 0;
