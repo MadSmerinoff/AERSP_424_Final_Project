@@ -34,6 +34,7 @@ int CHA::PrintSkillsCHA() {
 	cout << "Performance: " << CHA::getPerformanceMod() << endl;
 	cout << "Persuasion: " << CHA::getPersuasionMod() << endl;
 	cout << "----------" << endl;
+	return 0;
 }
 
 //Setters and Getters for Skills
