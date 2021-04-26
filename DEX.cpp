@@ -12,15 +12,15 @@ DEX::DEX(float dex1, float dex2) : Skills() {
 
 }
 
-void DEX::SetSavingThrow() {
+void DEX::SetSavingThrow(Class pClass, Character pCharacter) {
 
-	if (Class::getProfDex() == true) {
+	if (pClass.getProfDex() == true) {
 
-		DEXSaveThrowMod = Character::getDexMod() + 2;
+		DEXSaveThrowMod = pCharacter.getDexMod() + 2;
 	}
 	else {
 
-		DEXSaveThrowMod = Character::getDexMod();
+		DEXSaveThrowMod = pCharacter.getDexMod();
 	}
 
 }
