@@ -26,3 +26,9 @@ void Constitution::SetSavingThrow() {
 int Constitution::getSavingThrow() {
 	return CONSaveThrowMod;
 }
+
+int Constitution::PrintSkillsCON() {
+	cout << "Constitution Skills:" << endl;
+	cout << "Saving Throw: " << Constitution::getSavingThrow() << endl;
+	cout << "----------" << endl;
+}
