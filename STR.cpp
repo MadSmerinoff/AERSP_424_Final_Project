@@ -30,6 +30,13 @@ int STR::getSavingThrow() {
 	return STRSaveThrowMod;
 }
 
+int STR::PrintSkillsSTR() {
+	cout << "Strength Skills: " << endl;
+	cout << "Saving Throw: " << STR::getSavingThrow() << endl;
+	cout << "Athletics: " << STR::getAthleticsMod() << endl;
+	cout << "----------" << endl;
+}
+
 void STR::setAthleticsProf(bool AP) {
 	AthleticsProf = AP;
 }
