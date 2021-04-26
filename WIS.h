@@ -9,34 +9,36 @@
 #define WIS_H_
 
 #include "Skills.h"
+#include "Character.h"
+#include "Class.h"
 
 class WIS : public Skills {
 
 public:
 	WIS(char wis1, char wis2);
 
-	void SetSavingThrow();
+	void SetSavingThrow(Character, Class);
 	int getSavingThrow();
-	int PrintSkillsWIS();
+	int PrintSkillsWIS(Character);
 
 	void setAnimalHandlingProf(bool);
-	int getAnimalHandlingMod();
+	int getAnimalHandlingMod(Character);
 
 	void setInsightProf(bool);
-	int getInsightMod();
+	int getInsightMod(Character);
 
 	void setMedicineProf(bool);
-	int getMedicineMod();
+	int getMedicineMod(Character);
 
 	void setPerceptionProf(bool);
-	int getPerceptionMod();
+	int getPerceptionMod(Character);
 
 	void setSurvivalProf(bool);
-	int getSurvivalMod();
+	int getSurvivalMod(Character);
 
-	int getPassivePerception();
+	int getPassivePerception(Character);
 
-	int getPassiveInsight();
+	int getPassiveInsight(Character);
 
 private:
 	bool AnimalHandlingProf = false;
