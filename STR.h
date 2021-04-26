@@ -15,7 +15,7 @@ class STR : public Skills {
 public:
 	STR(float str);
 
-	void SetSavingThrow();
+	void SetSavingThrow(Class, Character);
 	int getSavingThrow();
 	int PrintSkillsSTR();
 
