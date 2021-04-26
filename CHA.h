@@ -17,6 +17,7 @@ public:
 
 	void SetSavingThrow();
 	int getSavingThrow();
+	int PrintSkillsCHA();
 
 	void setDeceptionProf(bool);
 	int getDeceptionMod();
