@@ -30,6 +30,18 @@ int INT::getSavingThrow() {
 	return INTSaveThrowMod;
 }
 
+int INT::PrintSkillsINT() {
+	cout << "Intelligence Skills: " << endl;
+	cout << "Saving Throw: " << INT::getSavingThrow() << endl;
+	cout << "Arcana: " << INT::getArcanaMod() << endl;
+	cout << "History: " << INT::getHistoryMod() << endl;
+	cout << "Investigation: " << INT::getInvestigationMod() << endl;
+	cout << "Nature: " << INT::getNatureMod() << endl;
+	cout << "Religion: " << INT::getReligionMod() << endl;
+	cout << "Passive Investigation: " << INT::getPassiveInvestigation() << endl;
+	cout << "----------" << endl;
+}
+
 //Setters and Getters for Skills
 void INT::setArcanaProf(bool AP) {
 	ArcanaProf = AP;
