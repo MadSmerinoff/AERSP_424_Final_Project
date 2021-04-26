@@ -17,6 +17,7 @@ public:
 
 	void SetSavingThrow();
 	int getSavingThrow();
+	int PrintSkillsDEX();
 
 	void setAcrobaticsProf(bool);
 	int getAcrobaticsMod();
