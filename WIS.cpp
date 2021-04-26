@@ -37,6 +37,7 @@ int WIS::PrintSkillsWIS() {
 	cout << "Passive Perception: " << WIS::getPassivePerception() << endl;
 	cout << "Passive Insight: " << WIS::getPassiveInsight() << endl;
 	cout << "----------" << endl;
+	return 0;
 }
 
 //Setters and Getters for Skills
