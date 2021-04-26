@@ -16,3 +16,10 @@
 Skills::Skills() : Class(), Character(), Race() {
 
 }
+
+void Skills::SetSavingThrow() {
+	cout << "This is not an ability /n";
+}
+int Skills::getSavingThrow() {
+	return -20;
+}
