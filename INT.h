@@ -8,6 +8,8 @@
 #ifndef INT_H_
 #define INT_H_
 
+#include "Class.h"
+#include "Character.h"
 #include "Skills.h"
 
 class INT : public Skills {
@@ -15,27 +17,27 @@ class INT : public Skills {
 public:
 	INT(int think);
 
-	void SetSavingThrow();
+	void SetSavingThrow(Character, Class);
 	int getSavingThrow();
-	int PrintSkillsINT();
+	int PrintSkillsINT(Character);
 
 	void setArcanaProf(bool);
-	int getArcanaMod();
+	int getArcanaMod(Character);
 
 	void setHistoryProf(bool);
-	int getHistoryMod();
+	int getHistoryMod(Character);
 
 	void setInvestigationProf(bool);
-	int getInvestigationMod();
+	int getInvestigationMod(Character);
 
 	void setNatureProf(bool);
-	int getNatureMod();
+	int getNatureMod(Character);
 
 	void setReligionProf(bool);
-	int getReligionMod();
+	int getReligionMod(Character);
 
 	//PassiveSkills
-	int getPassiveInvestigation();
+	int getPassiveInvestigation(Character);
 
 private:
 	bool ArcanaProf = false;
@@ -60,3 +62,4 @@ private:
 };
 
 #endif // !INT_H_
+
