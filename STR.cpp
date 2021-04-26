@@ -8,20 +8,23 @@
 #include "STR.h"
 #include "Skills.h"
 
+#include "Class.h"
+#include "Character.h"
+
 
 STR::STR(float str) : Skills() {
 	
 }
 
-void STR::SetSavingThrow() {
+void STR::SetSavingThrow(Class pClass, Character pCharacter) {
 	
-	if (Class::getProfStr() == true) {
+	if (pClass.getProfStr() == true) {
 
-		STRSaveThrowMod = Character::getStrMod() + 2;
+		STRSaveThrowMod = pCharacter.getStrMod() + 2;
 	}
 	else {
 
-		STRSaveThrowMod = Character::getStrMod();
+		STRSaveThrowMod = pCharacter.getStrMod();
 	}
 	
 }
