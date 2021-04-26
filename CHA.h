@@ -9,27 +9,29 @@
 #define CHA_H_
 
 #include "Skills.h"
+#include "Character.h"
+#include "Class.h"
 
 class CHA : public Skills {
 
 public:
 	CHA(bool cha1);
 
-	void SetSavingThrow();
+	void SetSavingThrow(Class, Character);
 	int getSavingThrow();
-	int PrintSkillsCHA();
+	int PrintSkillsCHA(Character);
 
 	void setDeceptionProf(bool);
-	int getDeceptionMod();
+	int getDeceptionMod(Character);
 
 	void setIntimidationProf(bool);
-	int getIntimidationMod();
+	int getIntimidationMod(Character);
 
 	void setPerformanceProf(bool);
-	int getPerformanceMod();
+	int getPerformanceMod(Character);
 
 	void setPersuasionProf(bool);
-	int getPersuasionMod();
+	int getPersuasionMod(Character);
 
 private:
 	bool DeceptionProf = false;
