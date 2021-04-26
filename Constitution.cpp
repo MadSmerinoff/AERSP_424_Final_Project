@@ -31,4 +31,5 @@ int Constitution::PrintSkillsCON() {
 	cout << "Constitution Skills:" << endl;
 	cout << "Saving Throw: " << Constitution::getSavingThrow() << endl;
 	cout << "----------" << endl;
+	return 0;
 }
