@@ -36,6 +36,7 @@ int DEX::PrintSkillsDEX() {
 	cout << "Sleight of Hand: " << DEX::getSleightofHandMod() << endl;
 	cout << "Stealth: " << DEX::getStealthMod() << endl;
 	cout << "----------" << endl;
+	return 0;
 }
 
 //Setters and Getters for Skills
