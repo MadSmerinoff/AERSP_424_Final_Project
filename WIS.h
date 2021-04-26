@@ -17,6 +17,7 @@ public:
 
 	void SetSavingThrow();
 	int getSavingThrow();
+	int PrintSkillsWIS();
 
 	void setAnimalHandlingProf(bool);
 	int getAnimalHandlingMod();
