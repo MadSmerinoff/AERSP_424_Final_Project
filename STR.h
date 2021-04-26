@@ -17,6 +17,7 @@ public:
 
 	void SetSavingThrow();
 	int getSavingThrow();
+	int PrintSkillsSTR();
 
 	void setAthleticsProf(bool);
 	int getAthleticsMod();
