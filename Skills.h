@@ -19,8 +19,8 @@ public:
 	Skills();
 
 protected:
-	virtual void SetSavingThrow() = 0;
-	virtual int getSavingThrow() = 0;
+	virtual void SetSavingThrow();
+	virtual int getSavingThrow();
 
 	virtual ~Skills() {};
 
