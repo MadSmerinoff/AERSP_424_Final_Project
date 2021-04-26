@@ -17,6 +17,7 @@ public:
 
 	void SetSavingThrow();
 	int getSavingThrow();
+	int PrintSkillsCON();
 
 private:
 	int CONSaveThrowMod = 0;
