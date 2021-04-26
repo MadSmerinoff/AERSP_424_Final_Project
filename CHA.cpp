@@ -26,6 +26,17 @@ int CHA::getSavingThrow() {
 	return CHASaveThrowMod;
 }
 
+int CHA::PrintSkillsCHA() {
+	cout << "Charisma Skills: " << endl;
+	cout << "Saving Throw: " << CHA::getSavingThrow() << endl;
+	cout << "Deception: " << CHA::getDeceptionMod() << endl;
+	cout << "Intimidation: " << CHA::getIntimidationMod() << endl;
+	cout << "Performance: " << CHA::getPerformanceMod() << endl;
+	cout << "Persuasion: " << CHA::getPersuasionMod() << endl;
+	cout << "----------" << endl;
+}
+
+//Setters and Getters for Skills
 void CHA::setDeceptionProf(bool DP) {
 	DeceptionProf = DP;
 }
