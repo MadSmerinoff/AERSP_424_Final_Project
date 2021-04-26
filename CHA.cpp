@@ -7,18 +7,20 @@
 
 #include "CHA.h"
 #include "Skills.h"
+#include "Character.h"
+#include "Class.h"
 
 CHA::CHA(bool cha1) : Skills() {
 
 }
 
-void CHA::SetSavingThrow() {
+void CHA::SetSavingThrow(Class pClass, Character pCharacter) {
 
-	if (Class::getProfChr() == true) {
-		CHASaveThrowMod = Character::getCharMod() + 2;
+	if (pClass.getProfChr() == true) {
+		CHASaveThrowMod = pCharacter.getCharMod() + 2;
 	}
 	else {
-		CHASaveThrowMod = Character::getCharMod();
+		CHASaveThrowMod = pCharacter.getCharMod();
 	}
 }
 
@@ -26,13 +28,13 @@ int CHA::getSavingThrow() {
 	return CHASaveThrowMod;
 }
 
-int CHA::PrintSkillsCHA() {
+int CHA::PrintSkillsCHA(Character pCharacter) {
 	cout << "Charisma Skills: " << endl;
 	cout << "Saving Throw: " << CHA::getSavingThrow() << endl;
-	cout << "Deception: " << CHA::getDeceptionMod() << endl;
-	cout << "Intimidation: " << CHA::getIntimidationMod() << endl;
-	cout << "Performance: " << CHA::getPerformanceMod() << endl;
-	cout << "Persuasion: " << CHA::getPersuasionMod() << endl;
+	cout << "Deception: " << CHA::getDeceptionMod(pCharacter) << endl;
+	cout << "Intimidation: " << CHA::getIntimidationMod(pCharacter) << endl;
+	cout << "Performance: " << CHA::getPerformanceMod(pCharacter) << endl;
+	cout << "Persuasion: " << CHA::getPersuasionMod(pCharacter) << endl;
 	cout << "----------" << endl;
 	return 0;
 }
@@ -41,13 +43,13 @@ int CHA::PrintSkillsCHA() {
 void CHA::setDeceptionProf(bool DP) {
 	DeceptionProf = DP;
 }
-int CHA::getDeceptionMod() {
+int CHA::getDeceptionMod(Character pCharacter) {
 
 	if (DeceptionProf == true) {
-		DeceptionMod = Character::getCharMod() + 2;
+		DeceptionMod = pCharacter.getCharMod() + 2;
 	}
 	else {
-		DeceptionMod = Character::getCharMod();
+		DeceptionMod = pCharacter.getCharMod();
 	}
 	return DeceptionMod;
 }
@@ -55,13 +57,13 @@ int CHA::getDeceptionMod() {
 void CHA::setIntimidationProf(bool IP) {
 	IntimidationProf = IP;
 }
-int CHA::getIntimidationMod() {
+int CHA::getIntimidationMod(Character pCharacter) {
 
 	if (IntimidationProf == true) {
-		IntimidationMod = Character::getCharMod() + 2;
+		IntimidationMod = pCharacter.getCharMod() + 2;
 	}
 	else {
-		IntimidationMod = Character::getCharMod();
+		IntimidationMod = pCharacter.getCharMod();
 	}
 	return IntimidationMod;
 }
@@ -69,13 +71,13 @@ int CHA::getIntimidationMod() {
 void CHA::setPerformanceProf(bool PP) {
 	PerformanceProf = PP;
 }
-int CHA::getPerformanceMod() {
+int CHA::getPerformanceMod(Character pCharacter) {
 
 	if (PerformanceProf == true) {
-		PerformanceMod = Character::getCharMod() + 2;
+		PerformanceMod = pCharacter.getCharMod() + 2;
 	}
 	else {
-		PerformanceMod = Character::getCharMod();
+		PerformanceMod = pCharacter.getCharMod();
 	}
 	return PerformanceMod;
 }
@@ -83,13 +85,13 @@ int CHA::getPerformanceMod() {
 void CHA::setPersuasionProf(bool PeP) {
 	PersuasionProf = PeP;
 }
-int CHA::getPersuasionMod() {
+int CHA::getPersuasionMod(Character pCharacter) {
 
 	if (PersuasionProf == true) {
-		PersuasionMod = Character::getCharMod() + 2;
+		PersuasionMod = pCharacter.getCharMod() + 2;
 	}
 	else {
-		PersuasionMod = Character::getCharMod();
+		PersuasionMod = pCharacter.getCharMod();
 	}
 	return PersuasionMod;
 }
