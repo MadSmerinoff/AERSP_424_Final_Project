@@ -1,4 +1,5 @@
 #include "Race.h"
+#include "Class.h"
 
 #pragma once
 class Character
