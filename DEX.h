@@ -15,7 +15,7 @@ class DEX : public Skills {
 public:
 	DEX(float dex1, float dex2);
 
-	void SetSavingThrow();
+	void SetSavingThrow(Class, Character);
 	int getSavingThrow();
 	int PrintSkillsDEX();
 
