@@ -10,7 +10,7 @@
 
 #include "Skills.h"
 
-class STR : public Skills, public Character, public Race {
+class STR : public Skills {
 
 public:
 	STR(float str);
