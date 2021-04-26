@@ -9,7 +9,7 @@
 #include "Skills.h"
 
 
-STR::STR(float str) : Skills(), Character(), Race() {
+STR::STR(float str) : Skills() {
 	
 }
 
@@ -35,6 +35,7 @@ int STR::PrintSkillsSTR() {
 	cout << "Saving Throw: " << STR::getSavingThrow() << endl;
 	cout << "Athletics: " << STR::getAthleticsMod() << endl;
 	cout << "----------" << endl;
+	return 0;
 }
 
 void STR::setAthleticsProf(bool AP) {
