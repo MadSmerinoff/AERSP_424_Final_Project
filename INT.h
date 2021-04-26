@@ -17,6 +17,7 @@ public:
 
 	void SetSavingThrow();
 	int getSavingThrow();
+	int PrintSkillsINT();
 
 	void setArcanaProf(bool);
 	int getArcanaMod();
