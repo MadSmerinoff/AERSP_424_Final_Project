@@ -12,13 +12,13 @@ WIS::WIS(char wis1, char wis2) : Skills() {
 
 }
 
-void WIS::SetSavingThrow() {
+void WIS::SetSavingThrow(Character pCharacter, Class pClass) {
 
-	if (Class::getProfWis() == true) {
-		WISSaveThrowMod = Character::getWisMod() + 2;
+	if (pClass.getProfWis() == true) {
+		WISSaveThrowMod = pCharacter.getWisMod() + 2;
 	}
 	else {
-		WISSaveThrowMod = Character::getWisMod();
+		WISSaveThrowMod = pCharacter.getWisMod();
 	}
 }
 
@@ -26,16 +26,16 @@ int WIS::getSavingThrow() {
 	return WISSaveThrowMod;
 }
 
-int WIS::PrintSkillsWIS() {
+int WIS::PrintSkillsWIS(Character pCharacter) {
 	cout << "Wisdom Skill: " << endl;
 	cout << "Saving Throw: " << WIS::getSavingThrow() << endl;
-	cout << "Animal Handling: " << WIS::getAnimalHandlingMod() << endl;
-	cout << "Insight: " << WIS::getInsightMod() << endl;
-	cout << "Medicine: " << WIS::getMedicineMod() << endl;
-	cout << "Perception: " << WIS::getPerceptionMod() << endl;
-	cout << "Survival: " << WIS::getSurvivalMod() << endl;
-	cout << "Passive Perception: " << WIS::getPassivePerception() << endl;
-	cout << "Passive Insight: " << WIS::getPassiveInsight() << endl;
+	cout << "Animal Handling: " << WIS::getAnimalHandlingMod(pCharacter) << endl;
+	cout << "Insight: " << WIS::getInsightMod(pCharacter) << endl;
+	cout << "Medicine: " << WIS::getMedicineMod(pCharacter) << endl;
+	cout << "Perception: " << WIS::getPerceptionMod(pCharacter) << endl;
+	cout << "Survival: " << WIS::getSurvivalMod(pCharacter) << endl;
+	cout << "Passive Perception: " << WIS::getPassivePerception(pCharacter) << endl;
+	cout << "Passive Insight: " << WIS::getPassiveInsight(pCharacter) << endl;
 	cout << "----------" << endl;
 	return 0;
 }
@@ -44,13 +44,13 @@ int WIS::PrintSkillsWIS() {
 void WIS::setAnimalHandlingProf(bool AHP) {
 	AnimalHandlingProf = AHP;
 }
-int WIS::getAnimalHandlingMod() {
+int WIS::getAnimalHandlingMod(Character pCharacter) {
 
 	if (AnimalHandlingProf == true) {
-		AnimalHandlingMod = Character::getWisMod() + 2;
+		AnimalHandlingMod = pCharacter.getWisMod() + 2;
 	}
 	else {
-		AnimalHandlingMod = Character::getWisMod();
+		AnimalHandlingMod = pCharacter.getWisMod();
 	}
 	return AnimalHandlingMod;
 }
@@ -58,13 +58,13 @@ int WIS::getAnimalHandlingMod() {
 void WIS::setInsightProf(bool IP) {
 	InsightProf = IP;
 }
-int WIS::getInsightMod() {
+int WIS::getInsightMod(Character pCharacter) {
 
 	if (InsightProf == true) {
-		InsightMod = Character::getWisMod() + 2;
+		InsightMod = pCharacter.getWisMod() + 2;
 	}
 	else {
-		InsightMod = Character::getWisMod();
+		InsightMod = pCharacter.getWisMod();
 	}
 	return InsightMod;
 }
@@ -72,13 +72,13 @@ int WIS::getInsightMod() {
 void WIS::setMedicineProf(bool MP) {
 	MedicineProf = MP;
 }
-int WIS::getMedicineMod() {
+int WIS::getMedicineMod(Character pCharacter) {
 
 	if (MedicineProf == true) {
-		MedicineMod = Character::getWisMod() + 2;
+		MedicineMod = pCharacter.getWisMod() + 2;
 	}
 	else {
-		MedicineMod = Character::getWisMod();
+		MedicineMod = pCharacter.getWisMod();
 	}
 	return MedicineMod;
 }
@@ -86,13 +86,13 @@ int WIS::getMedicineMod() {
 void WIS::setPerceptionProf(bool PP) {
 	PerceptionProf = PP;
 }
-int WIS::getPerceptionMod() {
+int WIS::getPerceptionMod(Character pCharacter) {
 
 	if (PerceptionProf == true) {
-		PerceptionMod = Character::getWisMod() + 2;
+		PerceptionMod = pCharacter.getWisMod() + 2;
 	}
 	else {
-		PerceptionMod = Character::getWisMod();
+		PerceptionMod = pCharacter.getWisMod();
 	}
 	return PerceptionMod;
 }
@@ -100,25 +100,25 @@ int WIS::getPerceptionMod() {
 void WIS::setSurvivalProf(bool SP) {
 	SurvivalProf = SP;
 }
-int WIS::getSurvivalMod() {
+int WIS::getSurvivalMod(Character pCharacter) {
 
 	if (SurvivalProf == true) {
-		SurvivalMod = Character::getWisMod() + 2;
+		SurvivalMod = pCharacter.getWisMod() + 2;
 	}
 	else {
-		SurvivalMod = Character::getWisMod();
+		SurvivalMod = pCharacter.getWisMod();
 	}
 	return SurvivalMod;
 }
 
 //Passive Skills
 
-int WIS::getPassivePerception() {
-	PassivePerception = WIS::getPerceptionMod() + 10;
+int WIS::getPassivePerception(Character pCharacter) {
+	PassivePerception = WIS::getPerceptionMod(pCharacter) + 10;
 	return PassivePerception;
 }
 
-int WIS::getPassiveInsight() {
-	PassiveInsight = WIS::getInsightMod() + 10;
+int WIS::getPassiveInsight(Character pCharacter) {
+	PassiveInsight = WIS::getInsightMod(pCharacter) + 10;
 	return PassiveInsight;
 }
